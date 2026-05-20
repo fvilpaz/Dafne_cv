@@ -93,6 +93,15 @@
       color: var(--blue);
     }
 
+    .header-name .tagline {
+      font-family: 'Geist Mono', monospace;
+      font-size: .68rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
     .header-contact {
       padding: 30px;
       display: flex;
@@ -180,7 +189,7 @@
 
     /* ──────────────── SECTION ──────────────── */
     .sec {
-      margin-bottom: 48px;
+      margin-bottom: 44px;
     }
 
     .sec:last-child {
@@ -193,7 +202,7 @@
       letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -208,17 +217,66 @@
 
     /* ──────────────── PERFIL ──────────────── */
     .perfil-text {
-      font-size: .95rem;
+      font-size: .93rem;
       color: var(--text-p);
       line-height: 1.75;
       border-left: 3px solid var(--blue);
       padding-left: 20px;
     }
 
+    /* ──────────────── FORMACIÓN (main) ──────────────── */
+    .edu-card {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .edu-card:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .edu-title {
+      font-weight: 700;
+      font-size: .97rem;
+      color: var(--ink);
+    }
+
+    .edu-date {
+      font-family: 'Geist Mono', monospace;
+      font-size: .68rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .edu-where {
+      font-family: 'Geist Mono', monospace;
+      font-size: .7rem;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+
+    .edu-detail {
+      font-size: .84rem;
+      color: var(--text-p);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
     /* ──────────────── EXPERIENCE ──────────────── */
     .xp {
-      margin-bottom: 24px;
-      padding-bottom: 24px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
       border-bottom: 1px solid var(--rule);
     }
 
@@ -283,7 +341,7 @@
 
     /* ──────────────── SIDEBAR ──────────────── */
     .sb-sec {
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
 
     .sb-sec:last-child {
@@ -303,55 +361,79 @@
       display: block;
     }
 
-    /* Skill tags */
-    .stags {
+    /* Languages */
+    .lang-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
     }
 
-    .stag {
+    .lang-name {
+      font-size: .84rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .lang-level {
       font-family: 'Geist Mono', monospace;
       font-size: .65rem;
-      padding: 4px 10px;
-      border-radius: 3px;
-      color: #fff;
-      font-weight: 500;
-      letter-spacing: .03em;
+      color: var(--paper);
+      background: var(--blue);
+      padding: 2px 7px;
+      border-radius: 2px;
+      letter-spacing: .04em;
     }
 
-    .stag-a1 { background: #4a7fa0; }
-    .stag-a2 { background: #3a6e90; }
-    .stag-a3 { background: #5890b0; }
-    .stag-a4 { background: #2c5f80; }
-    .stag-a5 { background: #6a8fa8; }
-    .stag-a6 { background: #3d6a88; }
-
-    /* Certs */
-    .cert {
-      margin-bottom: 15px;
-      padding-left: 10px;
-      border-left: 2px solid var(--blue);
+    .lang-level.native {
+      background: var(--ink);
     }
 
-    .cert:last-child {
-      margin-bottom: 0;
+    /* Skills */
+    .skill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .cert-name {
-      font-weight: 600;
+    .skill-list li {
       font-size: .83rem;
-      line-height: 1.3;
-      margin-bottom: 2px;
+      color: var(--text-p);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .cert-detail {
+    .skill-list li:last-child {
+      border-bottom: none;
+    }
+
+    .skill-list li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    /* Disponibilidad */
+    .avail-block {
+      background: var(--bg-contact);
+      border-left: 3px solid var(--blue);
+      padding: 10px 12px;
+    }
+
+    .avail-block p {
       font-family: 'Geist Mono', monospace;
-      font-size: .66rem;
-      color: var(--muted);
-      margin-bottom: 4px;
+      font-size: .68rem;
+      color: var(--text-p);
+      line-height: 1.6;
     }
 
+    /* Badge */
     .badge {
       display: inline-block;
       font-family: 'Geist Mono', monospace;
@@ -370,21 +452,6 @@
     .badge.wip {
       background: var(--badge-wip-bg);
       color: var(--badge-wip-text);
-    }
-
-    /* Languages */
-    .lang-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: .82rem;
-      margin-bottom: 8px;
-      color: var(--muted);
-    }
-
-    .lang-row span:first-child {
-      font-weight: 600;
-      color: var(--ink);
-      font-size: .82rem;
     }
 
     /* ──────────────── FLOATING BUTTONS ──────────────── */
@@ -484,8 +551,8 @@
 
       .sidebar {
         display: table-cell;
-        width: 220px;
-        padding: 20px 26px;
+        width: 210px;
+        padding: 20px 24px;
         vertical-align: top;
         background: var(--bg-sidebar);
       }
@@ -504,9 +571,10 @@
         margin-bottom: 22px;
       }
 
+      .edu-card,
       .xp {
-        margin-bottom: 12px;
-        padding-bottom: 12px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
       }
 
       .floating-btns {
@@ -612,6 +680,7 @@
     <div class="header">
       <div class="header-name">
         <div class="name">Dafne<br><span class="name-accent">Vilas Blanco</span></div>
+        <div class="tagline">Técnico Superior en Imagen del<br>Diagnóstico y Medicina Nuclear</div>
       </div>
       <div class="header-contact">
         <div class="contact-label">Contacto</div>
@@ -620,7 +689,7 @@
           <a href="mailto:dafvilblanco@gmail.com"><span class="dot"></span>dafvilblanco@gmail.com</a>
           <span><span class="dot"></span>Fuengirola, Málaga</span>
         </div>
-        <div class="header-available">Cursando CFGS · Buscando empleo</div>
+        <div class="header-available">Disponible · Prácticas / Jornada parcial</div>
       </div>
       <div class="header-right">
         <img src="foto.jpeg" alt="Dafne Vilas Blanco" />
@@ -633,10 +702,44 @@
       <!-- MAIN -->
       <main class="main">
 
-        <!-- SOBRE MÍ -->
+        <!-- PERFIL -->
         <section class="sec">
-          <div class="sec-label">Sobre mí</div>
-          <p class="perfil-text">Me considero una persona responsable, extrovertida, amable, dinámica y con muchas ganas de aprender. Destaco por mi capacidad para trabajar en equipo y por mi adaptabilidad. Busco aportar siempre una actitud positiva y comprometida.</p>
+          <div class="sec-label">Perfil</div>
+          <p class="perfil-text">Estudiante de Grado Superior en Imagen del Diagnóstico y Medicina Nuclear, con orientación hacia el sector sanitario y el trabajo en entornos clínicos. Persona responsable, dinámica y con facilidad para el trato con pacientes y equipos multidisciplinares. Compagino los estudios con experiencia real en atención al público y gestión de caja.</p>
+        </section>
+
+        <!-- FORMACIÓN -->
+        <section class="sec">
+          <div class="sec-label">Formación</div>
+
+          <div class="edu-card">
+            <div class="edu-row">
+              <span class="edu-title">CFGS · Imagen del Diagnóstico y Medicina Nuclear</span>
+              <span class="edu-date">2024 – actualidad</span>
+            </div>
+            <div class="edu-where">MEDAC · Fuengirola</div>
+            <p class="edu-detail">Formación en radiología diagnóstica, ecografía, tomografía computarizada, resonancia magnética y medicina nuclear. Incluye prácticas clínicas en entorno hospitalario.</p>
+            <span class="badge wip">En curso</span>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-row">
+              <span class="edu-title">Bachillerato de Ciencias y Tecnología</span>
+              <span class="edu-date">2022 – 2024</span>
+            </div>
+            <div class="edu-where">IES Los Boliches · Fuengirola</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-row">
+              <span class="edu-title">Educación Secundaria Obligatoria</span>
+              <span class="edu-date">2018 – 2022</span>
+            </div>
+            <div class="edu-where">IES Mercedes Labrador · Fuengirola</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
         </section>
 
         <!-- EXPERIENCIA -->
@@ -650,20 +753,21 @@
             </div>
             <div class="xp-where">Supermercados Jamón · Fuengirola</div>
             <ul class="xp-list">
-              <li>Cobro en caja y manejo de efectivo</li>
-              <li>Reposición y organización de productos</li>
+              <li>Gestión de caja, cobro en efectivo y tarjeta</li>
+              <li>Reposición y organización de productos en sala</li>
+              <li>Atención directa al cliente en entorno de alto volumen</li>
             </ul>
           </div>
 
           <div class="xp">
             <div class="xp-row">
-              <span class="xp-title">Cajera</span>
+              <span class="xp-title">Cajera · Atención al cliente</span>
               <span class="xp-date">29 may – 1 jun 2025</span>
             </div>
             <div class="xp-where">Feria del Marisco · Puerto Deportivo de Benalmádena</div>
             <ul class="xp-list">
               <li>Atención al cliente en el stand de Los Mellizos</li>
-              <li>Manejo de caja, cobro en efectivo y uso de datáfono para pagos con tarjeta</li>
+              <li>Cobro en efectivo y con datáfono bajo presión de alta afluencia</li>
             </ul>
           </div>
 
@@ -674,47 +778,45 @@
       <!-- SIDEBAR -->
       <aside class="sidebar">
 
-        <div class="sb-sec">
-          <span class="sb-label">Aptitudes</span>
-          <div class="stags">
-            <span class="stag stag-a1">Escucha activa</span>
-            <span class="stag stag-a2">Adaptación</span>
-            <span class="stag stag-a3">Trabajo en equipo</span>
-            <span class="stag stag-a4">Resolución de problemas</span>
-            <span class="stag stag-a5">Empatía</span>
-            <span class="stag stag-a6">Autocrítica</span>
-          </div>
-        </div>
-
-        <div class="sb-sec">
-          <span class="sb-label">Formación</span>
-
-          <div class="cert">
-            <div class="cert-name">Imagen del Diagnóstico y Medicina Nuclear</div>
-            <div class="cert-detail">Grado Superior · MEDAC</div>
-            <span class="badge wip">En curso</span>
-          </div>
-
-          <div class="cert">
-            <div class="cert-name">Bachillerato de Ciencias y Tecnología</div>
-            <div class="cert-detail">2022 – 2024 · IES Los Boliches</div>
-            <span class="badge done">✓ Completado</span>
-          </div>
-
-          <div class="cert">
-            <div class="cert-name">ESO</div>
-            <div class="cert-detail">2018 – 2022 · IES Mercedes Labrador</div>
-            <span class="badge done">✓ Completado</span>
-          </div>
-
-        </div>
-
+        <!-- IDIOMAS -->
         <div class="sb-sec">
           <span class="sb-label">Idiomas</span>
-          <div class="lang-row"><span>Gallego</span><span>Nativo</span></div>
-          <div class="lang-row"><span>Español</span><span>Nativo</span></div>
-          <div class="lang-row"><span>Inglés</span><span>Avanzado</span></div>
-          <div class="lang-row"><span>Francés</span><span>DELF B1</span></div>
+          <div class="lang-row">
+            <span class="lang-name">Español</span>
+            <span class="lang-level native">Nativo</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Gallego</span>
+            <span class="lang-level native">Nativo</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Inglés</span>
+            <span class="lang-level">Avanzado</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">Francés</span>
+            <span class="lang-level">DELF B1</span>
+          </div>
+        </div>
+
+        <!-- HABILIDADES -->
+        <div class="sb-sec">
+          <span class="sb-label">Habilidades</span>
+          <ul class="skill-list">
+            <li>Trabajo en equipo</li>
+            <li>Atención al paciente</li>
+            <li>Resolución de problemas</li>
+            <li>Adaptación al entorno</li>
+            <li>Empatía y escucha activa</li>
+          </ul>
+        </div>
+
+        <!-- DISPONIBILIDAD -->
+        <div class="sb-sec">
+          <span class="sb-label">Disponibilidad</span>
+          <div class="avail-block">
+            <p>Abierta a prácticas clínicas, trabajo en fines de semana y jornada parcial compatible con el CFGS.</p>
+          </div>
         </div>
 
       </aside>
@@ -725,77 +827,93 @@
     const _t = {
       es: {
         contact_label: 'Contacto',
-        header_available: 'Cursando CFGS · Buscando empleo',
+        header_available: 'Disponible · Prácticas / Jornada parcial',
+        tagline: 'Técnico Superior en Imagen del\nDiagnóstico y Medicina Nuclear',
         location: 'Fuengirola, Málaga',
-        sec_perfil: 'Sobre mí',
-        perfil_p: 'Me considero una persona responsable, extrovertida, amable, dinámica y con muchas ganas de aprender. Destaco por mi capacidad para trabajar en equipo y por mi adaptabilidad. Busco aportar siempre una actitud positiva y comprometida.',
+        sec_perfil: 'Perfil',
+        perfil_p: 'Estudiante de Grado Superior en Imagen del Diagnóstico y Medicina Nuclear, con orientación hacia el sector sanitario y el trabajo en entornos clínicos. Persona responsable, dinámica y con facilidad para el trato con pacientes y equipos multidisciplinares. Compagino los estudios con experiencia real en atención al público y gestión de caja.',
+        sec_edu: 'Formación',
+        edu0_title: 'CFGS · Imagen del Diagnóstico y Medicina Nuclear',
+        edu0_date: '2024 – actualidad',
+        edu0_where: 'MEDAC · Fuengirola',
+        edu0_detail: 'Formación en radiología diagnóstica, ecografía, tomografía computarizada, resonancia magnética y medicina nuclear. Incluye prácticas clínicas en entorno hospitalario.',
+        edu0_badge: 'En curso',
+        edu1_title: 'Bachillerato de Ciencias y Tecnología',
+        edu1_date: '2022 – 2024',
+        edu1_where: 'IES Los Boliches · Fuengirola',
+        edu2_title: 'Educación Secundaria Obligatoria',
+        edu2_date: '2018 – 2022',
+        edu2_where: 'IES Mercedes Labrador · Fuengirola',
+        badge_done: '✓ Completado',
         sec_exp: 'Experiencia',
         xp0_title: 'Cajera / Reponedora',
         xp0_date: 'Jun – Sep 2025',
         xp0_where: 'Supermercados Jamón · Fuengirola',
-        xp0_li0: 'Cobro en caja y manejo de efectivo',
-        xp0_li1: 'Reposición y organización de productos',
-        xp1_title: 'Cajera',
+        xp0_li0: 'Gestión de caja, cobro en efectivo y tarjeta',
+        xp0_li1: 'Reposición y organización de productos en sala',
+        xp0_li2: 'Atención directa al cliente en entorno de alto volumen',
+        xp1_title: 'Cajera · Atención al cliente',
         xp1_date: '29 may – 1 jun 2025',
         xp1_where: 'Feria del Marisco · Puerto Deportivo de Benalmádena',
         xp1_li0: 'Atención al cliente en el stand de Los Mellizos',
-        xp1_li1: 'Manejo de caja, cobro en efectivo y uso de datáfono para pagos con tarjeta',
-        sb_aptitudes: 'Aptitudes',
-        skills: ['Escucha activa', 'Adaptación', 'Trabajo en equipo', 'Resolución de problemas', 'Empatía', 'Autocrítica'],
-        sb_formacion: 'Formación',
-        cert0_name: 'Imagen del Diagnóstico y Medicina Nuclear',
-        cert0_detail: 'Grado Superior · MEDAC',
-        cert1_name: 'Bachillerato de Ciencias y Tecnología',
-        cert1_detail: '2022 – 2024 · IES Los Boliches',
-        cert2_name: 'ESO',
-        cert2_detail: '2018 – 2022 · IES Mercedes Labrador',
-        badge_wip: 'En curso',
-        badge_done: '✓ Completado',
+        xp1_li1: 'Cobro en efectivo y con datáfono bajo presión de alta afluencia',
         sb_idiomas: 'Idiomas',
-        lang_gl: 'Gallego',
         lang_es: 'Español',
+        lang_gl: 'Gallego',
         lang_en: 'Inglés',
         lang_fr: 'Francés',
         lv_native: 'Nativo',
         lv_advanced: 'Avanzado',
         lv_b1: 'DELF B1',
+        sb_skills: 'Habilidades',
+        skills: ['Trabajo en equipo', 'Atención al paciente', 'Resolución de problemas', 'Adaptación al entorno', 'Empatía y escucha activa'],
+        sb_avail: 'Disponibilidad',
+        avail_p: 'Abierta a prácticas clínicas, trabajo en fines de semana y jornada parcial compatible con el CFGS.',
       },
       en: {
         contact_label: 'Contact',
-        header_available: 'Higher Vocational Training · Open to work',
+        header_available: 'Available · Placement / Part-time',
+        tagline: 'Higher Technician in Medical Imaging\n& Nuclear Medicine',
         location: 'Fuengirola, Málaga, Spain',
-        sec_perfil: 'About me',
-        perfil_p: 'I consider myself a responsible, outgoing, friendly and dynamic person with a strong eagerness to learn. I stand out for my ability to work as part of a team and for my adaptability. I always aim to bring a positive and committed attitude.',
+        sec_perfil: 'Profile',
+        perfil_p: 'Higher Vocational student specialising in Medical Imaging and Nuclear Medicine, focused on a career in healthcare and clinical environments. Responsible, dynamic and at ease working with patients and multidisciplinary teams. I combine my studies with hands-on experience in customer service and till management.',
+        sec_edu: 'Education',
+        edu0_title: 'HVT · Medical Imaging & Nuclear Medicine',
+        edu0_date: '2024 – present',
+        edu0_where: 'MEDAC · Fuengirola',
+        edu0_detail: 'Training in diagnostic radiology, ultrasound, computed tomography, MRI and nuclear medicine. Includes clinical placement in a hospital setting.',
+        edu0_badge: 'In progress',
+        edu1_title: 'A-Level Sciences & Technology',
+        edu1_date: '2022 – 2024',
+        edu1_where: 'IES Los Boliches · Fuengirola',
+        edu2_title: 'Secondary Education (ESO)',
+        edu2_date: '2018 – 2022',
+        edu2_where: 'IES Mercedes Labrador · Fuengirola',
+        badge_done: '✓ Completed',
         sec_exp: 'Experience',
         xp0_title: 'Cashier / Stock Replenisher',
         xp0_date: 'Jun – Sep 2025',
         xp0_where: 'Supermercados Jamón · Fuengirola',
-        xp0_li0: 'Till operation and cash handling',
-        xp0_li1: 'Stock replenishment and product organisation',
-        xp1_title: 'Cashier',
+        xp0_li0: 'Till operation, cash and card payment handling',
+        xp0_li1: 'Stock replenishment and product organisation on the shop floor',
+        xp0_li2: 'Direct customer service in a high-volume environment',
+        xp1_title: 'Cashier · Customer Service',
         xp1_date: '29 May – 1 Jun 2025',
         xp1_where: 'Feria del Marisco · Benalmádena Marina',
         xp1_li0: 'Customer service at the Los Mellizos stand',
-        xp1_li1: 'Till operation, cash handling and card payment processing via EFTPOS terminal',
-        sb_aptitudes: 'Skills',
-        skills: ['Active listening', 'Adaptability', 'Teamwork', 'Problem solving', 'Empathy', 'Self-awareness'],
-        sb_formacion: 'Education',
-        cert0_name: 'Medical Imaging & Nuclear Medicine',
-        cert0_detail: 'Higher Vocational Training · MEDAC',
-        cert1_name: 'A-Level Sciences & Technology',
-        cert1_detail: '2022 – 2024 · IES Los Boliches',
-        cert2_name: 'Secondary Education (ESO)',
-        cert2_detail: '2018 – 2022 · IES Mercedes Labrador',
-        badge_wip: 'In progress',
-        badge_done: '✓ Completed',
+        xp1_li1: 'Cash and EFTPOS payments under high-footfall pressure',
         sb_idiomas: 'Languages',
-        lang_gl: 'Galician',
         lang_es: 'Spanish',
+        lang_gl: 'Galician',
         lang_en: 'English',
         lang_fr: 'French',
         lv_native: 'Native',
         lv_advanced: 'Advanced',
         lv_b1: 'DELF B1',
+        sb_skills: 'Skills',
+        skills: ['Teamwork', 'Patient care', 'Problem solving', 'Adaptability', 'Empathy & active listening'],
+        sb_avail: 'Availability',
+        avail_p: 'Open to clinical placements, weekend work and part-time roles compatible with ongoing studies.',
       }
     };
 
@@ -815,16 +933,37 @@
       // Header
       _setText(_sel('.contact-label', 0), t.contact_label);
       _setText(_sel('.header-available', 0), t.header_available);
+      const taglineEl = document.querySelector('.tagline');
+      if (taglineEl) taglineEl.innerHTML = t.tagline.replace('\n', '<br>');
       const locSpan = document.querySelector('.contact-links > span');
       if (locSpan && locSpan.lastChild && locSpan.lastChild.nodeType === 3)
         locSpan.lastChild.textContent = t.location;
 
-      // Section labels
+      // Sections
       _setText(_sel('.sec-label', 0), t.sec_perfil);
       _setText(_sel('.perfil-text', 0), t.perfil_p);
-      _setText(_sel('.sec-label', 1), t.sec_exp);
+      _setText(_sel('.sec-label', 1), t.sec_edu);
 
-      // Experience entries
+      // Education
+      const eduTitles  = document.querySelectorAll('.edu-title');
+      const eduDates   = document.querySelectorAll('.edu-date');
+      const eduWheres  = document.querySelectorAll('.edu-where');
+      const eduDetails = document.querySelectorAll('.edu-detail');
+      _setText(eduTitles[0],  t.edu0_title);
+      _setText(eduDates[0],   t.edu0_date);
+      _setText(eduWheres[0],  t.edu0_where);
+      _setText(eduDetails[0], t.edu0_detail);
+      _sel('.badge.wip', 0).textContent = t.edu0_badge;
+      _setText(eduTitles[1],  t.edu1_title);
+      _setText(eduDates[1],   t.edu1_date);
+      _setText(eduWheres[1],  t.edu1_where);
+      _setText(eduTitles[2],  t.edu2_title);
+      _setText(eduDates[2],   t.edu2_date);
+      _setText(eduWheres[2],  t.edu2_where);
+      document.querySelectorAll('.badge.done').forEach(el => el.textContent = t.badge_done);
+
+      // Experience
+      _setText(_sel('.sec-label', 2), t.sec_exp);
       const titles = document.querySelectorAll('.xp-title');
       const dates  = document.querySelectorAll('.xp-date');
       const wheres = document.querySelectorAll('.xp-where');
@@ -834,37 +973,29 @@
       _setText(titles[1], t.xp1_title);
       _setText(dates[1],  t.xp1_date);
       _setText(wheres[1], t.xp1_where);
-
       const liItems = document.querySelectorAll('.xp-list li');
       _setText(liItems[0], t.xp0_li0);
       _setText(liItems[1], t.xp0_li1);
-      _setText(liItems[2], t.xp1_li0);
-      _setText(liItems[3], t.xp1_li1);
+      _setText(liItems[2], t.xp0_li2);
+      _setText(liItems[3], t.xp1_li0);
+      _setText(liItems[4], t.xp1_li1);
 
-      // Skills
-      _setText(_sel('.sb-label', 0), t.sb_aptitudes);
-      document.querySelectorAll('.stag').forEach((el, i) => _setText(el, t.skills[i]));
+      // Sidebar – Languages
+      _setText(_sel('.sb-label', 0), t.sb_idiomas);
+      const langNames  = document.querySelectorAll('.lang-name');
+      const langLevels = document.querySelectorAll('.lang-level');
+      _setText(langNames[0],  t.lang_es); _setText(langLevels[0], t.lv_native);
+      _setText(langNames[1],  t.lang_gl); _setText(langLevels[1], t.lv_native);
+      _setText(langNames[2],  t.lang_en); _setText(langLevels[2], t.lv_advanced);
+      _setText(langNames[3],  t.lang_fr); _setText(langLevels[3], t.lv_b1);
 
-      // Education
-      _setText(_sel('.sb-label', 1), t.sb_formacion);
-      const certNames   = document.querySelectorAll('.cert-name');
-      const certDetails = document.querySelectorAll('.cert-detail');
-      _setText(certNames[0],   t.cert0_name);
-      _setText(certDetails[0], t.cert0_detail);
-      _setText(certNames[1],   t.cert1_name);
-      _setText(certDetails[1], t.cert1_detail);
-      _setText(certNames[2],   t.cert2_name);
-      _setText(certDetails[2], t.cert2_detail);
-      _sel('.badge.wip', 0).textContent = t.badge_wip;
-      document.querySelectorAll('.badge.done').forEach(el => el.textContent = t.badge_done);
+      // Sidebar – Skills
+      _setText(_sel('.sb-label', 1), t.sb_skills);
+      document.querySelectorAll('.skill-list li').forEach((el, i) => _setText(el, t.skills[i]));
 
-      // Languages
-      _setText(_sel('.sb-label', 2), t.sb_idiomas);
-      const langSpans = document.querySelectorAll('.lang-row span');
-      _setText(langSpans[0], t.lang_gl);  _setText(langSpans[1], t.lv_native);
-      _setText(langSpans[2], t.lang_es);  _setText(langSpans[3], t.lv_native);
-      _setText(langSpans[4], t.lang_en);  _setText(langSpans[5], t.lv_advanced);
-      _setText(langSpans[6], t.lang_fr);  _setText(langSpans[7], t.lv_b1);
+      // Sidebar – Availability
+      _setText(_sel('.sb-label', 2), t.sb_avail);
+      _setText(_sel('.avail-block p', 0), t.avail_p);
 
       document.documentElement.lang = lang;
       document.getElementById('lang-label').textContent = lang === 'es' ? 'EN' : 'ES';
