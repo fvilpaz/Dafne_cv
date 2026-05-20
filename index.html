@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dafne Vilas Blanco</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,800&family=Geist+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0d1b2a;
+      --paper: #f0f6fa;
+      --card: #ffffff;
+      --muted: #5e8aa6;
+      --rule: #b8d0e2;
+      --blue: #4a7fa0;
+      --bg-contact: #dceaf4;
+      --bg-sidebar: #cfe0ec;
+      --text-p: #2e5068;
+      --badge-done-bg: #d8edf8;
+      --badge-done-text: #1e5070;
+      --badge-wip-bg: #c8dff0;
+      --badge-wip-text: #1a4a6a;
+    }
+
+    body.dark-mode {
+      --ink: #e4f0f7;
+      --paper: #0d1b2a;
+      --card: #162435;
+      --muted: #7aaec8;
+      --rule: #1e3a52;
+      --blue: #6fb5d8;
+      --bg-contact: #162435;
+      --bg-sidebar: #0f1e2e;
+      --text-p: #7aaec8;
+      --badge-done-bg: #0f2d40;
+      --badge-done-text: #6fb5d8;
+      --badge-wip-bg: #102840;
+      --badge-wip-text: #7ac8e8;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* ──────────────── LAYOUT ──────────────── */
+    .page {
+      max-width: 1020px;
+      margin: 44px auto;
+      background: var(--card);
+      box-shadow: 0 0 0 1px var(--rule), 0 8px 48px -8px rgba(0, 0, 0, .14);
+    }
+
+    /* ──────────────── HEADER ──────────────── */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr 280px 200px;
+      border-bottom: 2px solid var(--blue);
+    }
+
+    .header-name {
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1.5px solid var(--rule);
+    }
+
+    .header-name .name {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 0.88;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .header-name .name-accent {
+      color: var(--blue);
+    }
+
+    .header-contact {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--bg-contact);
+      border-right: 2px solid var(--blue);
+    }
+
+    .contact-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .contact-links a,
+    .contact-links span {
+      font-family: 'Geist Mono', monospace;
+      font-size: .75rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-links a:hover {
+      color: var(--blue);
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+      display: inline-block;
+    }
+
+    .header-available {
+      font-family: 'Geist Mono', monospace;
+      font-size: .6rem;
+      color: var(--muted);
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .header-right {
+      overflow: hidden;
+    }
+
+    .header-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+
+    /* ──────────────── BODY ──────────────── */
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+    }
+
+    .main {
+      padding: 52px 56px;
+      border-right: 1.5px solid var(--rule);
+    }
+
+    .sidebar {
+      padding: 52px 40px;
+      background: var(--bg-sidebar);
+    }
+
+    /* ──────────────── SECTION ──────────────── */
+    .sec {
+      margin-bottom: 48px;
+    }
+
+    .sec:last-child {
+      margin-bottom: 0;
+    }
+
+    .sec-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sec-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ──────────────── PERFIL ──────────────── */
+    .perfil-text {
+      font-size: .95rem;
+      color: var(--text-p);
+      line-height: 1.75;
+      border-left: 3px solid var(--blue);
+      padding-left: 20px;
+    }
+
+    /* ──────────────── EXPERIENCE ──────────────── */
+    .xp {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .xp:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .xp-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .xp-title {
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    .xp-date {
+      font-family: 'Geist Mono', monospace;
+      font-size: .68rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .xp-where {
+      font-family: 'Geist Mono', monospace;
+      font-size: .7rem;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .xp-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .xp-list li {
+      font-size: .86rem;
+      color: var(--text-p);
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+
+    .xp-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+
+    /* ──────────────── SIDEBAR ──────────────── */
+    .sb-sec {
+      margin-bottom: 40px;
+    }
+
+    .sb-sec:last-child {
+      margin-bottom: 0;
+    }
+
+    .sb-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      padding-top: 4px;
+      border-bottom: 1px solid var(--rule);
+      display: block;
+    }
+
+    /* Skill tags */
+    .stags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .stag {
+      font-family: 'Geist Mono', monospace;
+      font-size: .65rem;
+      padding: 4px 10px;
+      border-radius: 3px;
+      color: #fff;
+      font-weight: 500;
+      letter-spacing: .03em;
+    }
+
+    .stag-a1 { background: #4a7fa0; }
+    .stag-a2 { background: #3a6e90; }
+    .stag-a3 { background: #5890b0; }
+    .stag-a4 { background: #2c5f80; }
+    .stag-a5 { background: #6a8fa8; }
+    .stag-a6 { background: #3d6a88; }
+
+    /* Certs */
+    .cert {
+      margin-bottom: 15px;
+      padding-left: 10px;
+      border-left: 2px solid var(--blue);
+    }
+
+    .cert:last-child {
+      margin-bottom: 0;
+    }
+
+    .cert-name {
+      font-weight: 600;
+      font-size: .83rem;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+
+    .cert-detail {
+      font-family: 'Geist Mono', monospace;
+      font-size: .66rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'Geist Mono', monospace;
+      font-size: .6rem;
+      font-weight: 500;
+      letter-spacing: .07em;
+      padding: 2px 6px;
+      text-transform: uppercase;
+    }
+
+    .badge.done {
+      background: var(--badge-done-bg);
+      color: var(--badge-done-text);
+    }
+
+    .badge.wip {
+      background: var(--badge-wip-bg);
+      color: var(--badge-wip-text);
+    }
+
+    /* Languages */
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: .82rem;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .lang-row span:first-child {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: .82rem;
+    }
+
+    /* ──────────────── FLOATING BUTTONS ──────────────── */
+    .floating-btns {
+      position: fixed;
+      right: 18px;
+      bottom: 50%;
+      transform: translateY(50%);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 100;
+    }
+
+    .btn-pdf,
+    .btn-lang,
+    .btn-theme {
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      width: 38px;
+      height: 38px;
+      font-family: 'Geist Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      outline: 2px solid var(--blue);
+      outline-offset: -1px;
+      transition: background .15s, outline-color .15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-pdf:hover,
+    .btn-lang:hover,
+    .btn-theme:hover {
+      background: var(--blue);
+      outline-color: var(--blue);
+    }
+
+    /* ──────────────── PRINT ──────────────── */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      html, body {
+        height: auto !important;
+        min-height: auto !important;
+        overflow: visible !important;
+        background: #fff;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body.dark-mode {
+        --ink: #0d1b2a;
+        --paper: #f0f6fa;
+        --card: #ffffff;
+        --muted: #5e8aa6;
+        --rule: #b8d0e2;
+        --blue: #4a7fa0;
+        --bg-contact: #dceaf4;
+        --bg-sidebar: #cfe0ec;
+        --text-p: #2e5068;
+        --badge-done-bg: #d8edf8;
+        --badge-done-text: #1e5070;
+        --badge-wip-bg: #c8dff0;
+        --badge-wip-text: #1a4a6a;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        max-width: 100%;
+        box-shadow: none;
+      }
+
+      .body {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      .main {
+        display: table-cell;
+        width: auto;
+        padding: 20px 36px;
+        vertical-align: top;
+      }
+
+      .sidebar {
+        display: table-cell;
+        width: 220px;
+        padding: 20px 26px;
+        vertical-align: top;
+        background: var(--bg-sidebar);
+      }
+
+      .header-name,
+      .header-contact {
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+
+      .header-name .name {
+        font-size: 2.4rem;
+      }
+
+      .sec {
+        margin-bottom: 22px;
+      }
+
+      .xp {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+      }
+
+      .floating-btns {
+        display: none;
+      }
+    }
+
+    /* ──────────────── MOBILE / LANDSCAPE ──────────────── */
+    @media screen and (max-width: 720px),
+           screen and (max-height: 500px) and (orientation: landscape) {
+      .floating-btns {
+        flex-direction: row;
+        right: auto;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: .75;
+      }
+
+      .header {
+        grid-template-columns: 1fr 120px;
+      }
+
+      .header-name {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 24px 20px;
+        border-bottom: 1.5px solid var(--rule);
+      }
+
+      .header-right {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 0;
+        border-bottom: 1.5px solid var(--rule);
+      }
+
+      .header-contact {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        border-right: none;
+        padding: 24px 20px;
+      }
+
+      .body {
+        grid-template-columns: 1fr;
+      }
+
+      .main {
+        padding: 36px 24px;
+        border-right: none;
+      }
+
+      .sidebar {
+        padding: 36px 24px;
+      }
+
+      .header-name .name {
+        letter-spacing: -1px;
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="floating-btns">
+    <button class="btn-theme" id="theme-btn" onclick="toggleTheme()" title="Cambiar tema">
+      <svg id="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <svg id="icon-sun" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+    <button class="btn-lang" id="lang-btn" onclick="toggleLang()" title="Switch language">
+      <span id="lang-label">EN</span>
+    </button>
+    <button class="btn-pdf" onclick="window.print()" title="Descargar PDF">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-name">
+        <div class="name">Dafne<br><span class="name-accent">Vilas Blanco</span></div>
+      </div>
+      <div class="header-contact">
+        <div class="contact-label">Contacto</div>
+        <div class="contact-links">
+          <a href="tel:+34635207312"><span class="dot"></span>635 20 73 12</a>
+          <a href="mailto:dafvilblanco@gmail.com"><span class="dot"></span>dafvilblanco@gmail.com</a>
+          <span><span class="dot"></span>Fuengirola, Málaga</span>
+        </div>
+        <div class="header-available">Cursando CFGS · Buscando empleo</div>
+      </div>
+      <div class="header-right">
+        <img src="foto.jpeg" alt="Dafne Vilas Blanco" />
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <!-- MAIN -->
+      <main class="main">
+
+        <!-- SOBRE MÍ -->
+        <section class="sec">
+          <div class="sec-label">Sobre mí</div>
+          <p class="perfil-text">Me considero una persona responsable, extrovertida, amable, dinámica y con muchas ganas de aprender. Destaco por mi capacidad para trabajar en equipo y por mi adaptabilidad. Busco aportar siempre una actitud positiva y comprometida.</p>
+        </section>
+
+        <!-- EXPERIENCIA -->
+        <section class="sec">
+          <div class="sec-label">Experiencia</div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Cajera / Reponedora</span>
+              <span class="xp-date">Jun – Sep 2025</span>
+            </div>
+            <div class="xp-where">Supermercados Jamón · Fuengirola</div>
+            <ul class="xp-list">
+              <li>Cobro en caja y manejo de efectivo</li>
+              <li>Reposición y organización de productos</li>
+            </ul>
+          </div>
+
+          <div class="xp">
+            <div class="xp-row">
+              <span class="xp-title">Cajera</span>
+              <span class="xp-date">29 may – 1 jun 2025</span>
+            </div>
+            <div class="xp-where">Feria del Marisco · Puerto Deportivo de Benalmádena</div>
+            <ul class="xp-list">
+              <li>Atención al cliente en el stand de Los Mellizos</li>
+              <li>Manejo de caja, cobro en efectivo y uso de datáfono para pagos con tarjeta</li>
+            </ul>
+          </div>
+
+        </section>
+
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <div class="sb-sec">
+          <span class="sb-label">Aptitudes</span>
+          <div class="stags">
+            <span class="stag stag-a1">Escucha activa</span>
+            <span class="stag stag-a2">Adaptación</span>
+            <span class="stag stag-a3">Trabajo en equipo</span>
+            <span class="stag stag-a4">Resolución de problemas</span>
+            <span class="stag stag-a5">Empatía</span>
+            <span class="stag stag-a6">Autocrítica</span>
+          </div>
+        </div>
+
+        <div class="sb-sec">
+          <span class="sb-label">Formación</span>
+
+          <div class="cert">
+            <div class="cert-name">Imagen del Diagnóstico y Medicina Nuclear</div>
+            <div class="cert-detail">Grado Superior · MEDAC</div>
+            <span class="badge wip">En curso</span>
+          </div>
+
+          <div class="cert">
+            <div class="cert-name">Bachillerato de Ciencias y Tecnología</div>
+            <div class="cert-detail">2022 – 2024 · IES Los Boliches</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
+          <div class="cert">
+            <div class="cert-name">ESO</div>
+            <div class="cert-detail">2018 – 2022 · IES Mercedes Labrador</div>
+            <span class="badge done">✓ Completado</span>
+          </div>
+
+        </div>
+
+        <div class="sb-sec">
+          <span class="sb-label">Idiomas</span>
+          <div class="lang-row"><span>Gallego</span><span>Nativo</span></div>
+          <div class="lang-row"><span>Español</span><span>Nativo</span></div>
+          <div class="lang-row"><span>Inglés</span><span>Avanzado</span></div>
+          <div class="lang-row"><span>Francés</span><span>DELF B1</span></div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const _t = {
+      es: {
+        contact_label: 'Contacto',
+        header_available: 'Cursando CFGS · Buscando empleo',
+        location: 'Fuengirola, Málaga',
+        sec_perfil: 'Sobre mí',
+        perfil_p: 'Me considero una persona responsable, extrovertida, amable, dinámica y con muchas ganas de aprender. Destaco por mi capacidad para trabajar en equipo y por mi adaptabilidad. Busco aportar siempre una actitud positiva y comprometida.',
+        sec_exp: 'Experiencia',
+        xp0_title: 'Cajera / Reponedora',
+        xp0_date: 'Jun – Sep 2025',
+        xp0_where: 'Supermercados Jamón · Fuengirola',
+        xp0_li0: 'Cobro en caja y manejo de efectivo',
+        xp0_li1: 'Reposición y organización de productos',
+        xp1_title: 'Cajera',
+        xp1_date: '29 may – 1 jun 2025',
+        xp1_where: 'Feria del Marisco · Puerto Deportivo de Benalmádena',
+        xp1_li0: 'Atención al cliente en el stand de Los Mellizos',
+        xp1_li1: 'Manejo de caja, cobro en efectivo y uso de datáfono para pagos con tarjeta',
+        sb_aptitudes: 'Aptitudes',
+        skills: ['Escucha activa', 'Adaptación', 'Trabajo en equipo', 'Resolución de problemas', 'Empatía', 'Autocrítica'],
+        sb_formacion: 'Formación',
+        cert0_name: 'Imagen del Diagnóstico y Medicina Nuclear',
+        cert0_detail: 'Grado Superior · MEDAC',
+        cert1_name: 'Bachillerato de Ciencias y Tecnología',
+        cert1_detail: '2022 – 2024 · IES Los Boliches',
+        cert2_name: 'ESO',
+        cert2_detail: '2018 – 2022 · IES Mercedes Labrador',
+        badge_wip: 'En curso',
+        badge_done: '✓ Completado',
+        sb_idiomas: 'Idiomas',
+        lang_gl: 'Gallego',
+        lang_es: 'Español',
+        lang_en: 'Inglés',
+        lang_fr: 'Francés',
+        lv_native: 'Nativo',
+        lv_advanced: 'Avanzado',
+        lv_b1: 'DELF B1',
+      },
+      en: {
+        contact_label: 'Contact',
+        header_available: 'Higher Vocational Training · Open to work',
+        location: 'Fuengirola, Málaga, Spain',
+        sec_perfil: 'About me',
+        perfil_p: 'I consider myself a responsible, outgoing, friendly and dynamic person with a strong eagerness to learn. I stand out for my ability to work as part of a team and for my adaptability. I always aim to bring a positive and committed attitude.',
+        sec_exp: 'Experience',
+        xp0_title: 'Cashier / Stock Replenisher',
+        xp0_date: 'Jun – Sep 2025',
+        xp0_where: 'Supermercados Jamón · Fuengirola',
+        xp0_li0: 'Till operation and cash handling',
+        xp0_li1: 'Stock replenishment and product organisation',
+        xp1_title: 'Cashier',
+        xp1_date: '29 May – 1 Jun 2025',
+        xp1_where: 'Feria del Marisco · Benalmádena Marina',
+        xp1_li0: 'Customer service at the Los Mellizos stand',
+        xp1_li1: 'Till operation, cash handling and card payment processing via EFTPOS terminal',
+        sb_aptitudes: 'Skills',
+        skills: ['Active listening', 'Adaptability', 'Teamwork', 'Problem solving', 'Empathy', 'Self-awareness'],
+        sb_formacion: 'Education',
+        cert0_name: 'Medical Imaging & Nuclear Medicine',
+        cert0_detail: 'Higher Vocational Training · MEDAC',
+        cert1_name: 'A-Level Sciences & Technology',
+        cert1_detail: '2022 – 2024 · IES Los Boliches',
+        cert2_name: 'Secondary Education (ESO)',
+        cert2_detail: '2018 – 2022 · IES Mercedes Labrador',
+        badge_wip: 'In progress',
+        badge_done: '✓ Completed',
+        sb_idiomas: 'Languages',
+        lang_gl: 'Galician',
+        lang_es: 'Spanish',
+        lang_en: 'English',
+        lang_fr: 'French',
+        lv_native: 'Native',
+        lv_advanced: 'Advanced',
+        lv_b1: 'DELF B1',
+      }
+    };
+
+    let _lang = 'es';
+
+    function _sel(selector, idx) {
+      return document.querySelectorAll(selector)[idx] || null;
+    }
+
+    function _setText(el, text) {
+      if (el) el.textContent = text;
+    }
+
+    function applyLang(lang) {
+      const t = _t[lang];
+
+      // Header
+      _setText(_sel('.contact-label', 0), t.contact_label);
+      _setText(_sel('.header-available', 0), t.header_available);
+      const locSpan = document.querySelector('.contact-links > span');
+      if (locSpan && locSpan.lastChild && locSpan.lastChild.nodeType === 3)
+        locSpan.lastChild.textContent = t.location;
+
+      // Section labels
+      _setText(_sel('.sec-label', 0), t.sec_perfil);
+      _setText(_sel('.perfil-text', 0), t.perfil_p);
+      _setText(_sel('.sec-label', 1), t.sec_exp);
+
+      // Experience entries
+      const titles = document.querySelectorAll('.xp-title');
+      const dates  = document.querySelectorAll('.xp-date');
+      const wheres = document.querySelectorAll('.xp-where');
+      _setText(titles[0], t.xp0_title);
+      _setText(dates[0],  t.xp0_date);
+      _setText(wheres[0], t.xp0_where);
+      _setText(titles[1], t.xp1_title);
+      _setText(dates[1],  t.xp1_date);
+      _setText(wheres[1], t.xp1_where);
+
+      const liItems = document.querySelectorAll('.xp-list li');
+      _setText(liItems[0], t.xp0_li0);
+      _setText(liItems[1], t.xp0_li1);
+      _setText(liItems[2], t.xp1_li0);
+      _setText(liItems[3], t.xp1_li1);
+
+      // Skills
+      _setText(_sel('.sb-label', 0), t.sb_aptitudes);
+      document.querySelectorAll('.stag').forEach((el, i) => _setText(el, t.skills[i]));
+
+      // Education
+      _setText(_sel('.sb-label', 1), t.sb_formacion);
+      const certNames   = document.querySelectorAll('.cert-name');
+      const certDetails = document.querySelectorAll('.cert-detail');
+      _setText(certNames[0],   t.cert0_name);
+      _setText(certDetails[0], t.cert0_detail);
+      _setText(certNames[1],   t.cert1_name);
+      _setText(certDetails[1], t.cert1_detail);
+      _setText(certNames[2],   t.cert2_name);
+      _setText(certDetails[2], t.cert2_detail);
+      _sel('.badge.wip', 0).textContent = t.badge_wip;
+      document.querySelectorAll('.badge.done').forEach(el => el.textContent = t.badge_done);
+
+      // Languages
+      _setText(_sel('.sb-label', 2), t.sb_idiomas);
+      const langSpans = document.querySelectorAll('.lang-row span');
+      _setText(langSpans[0], t.lang_gl);  _setText(langSpans[1], t.lv_native);
+      _setText(langSpans[2], t.lang_es);  _setText(langSpans[3], t.lv_native);
+      _setText(langSpans[4], t.lang_en);  _setText(langSpans[5], t.lv_advanced);
+      _setText(langSpans[6], t.lang_fr);  _setText(langSpans[7], t.lv_b1);
+
+      document.documentElement.lang = lang;
+      document.getElementById('lang-label').textContent = lang === 'es' ? 'EN' : 'ES';
+    }
+
+    function toggleLang() {
+      _lang = _lang === 'es' ? 'en' : 'es';
+      applyLang(_lang);
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      document.getElementById('icon-moon').style.display = isDark ? 'none' : 'block';
+      document.getElementById('icon-sun').style.display  = isDark ? 'block' : 'none';
+    }
+  </script>
+</body>
+
+</html>
