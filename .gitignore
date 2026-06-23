@@ -1,0 +1,15 @@
+# ─── Archivos internos / privados — NO publicar en GitHub Pages ───
+# El sitio público solo debe ser el CV (index.html + foto).
+
+# Herramienta personal de Dafne (se le pasa por WhatsApp, no va a la web)
+roadmap.html
+
+# Notas y guías internas de trabajo
+LINKEDIN.md
+ANOTACIONES.md
+
+# Documentos personales (DNI, solicitudes, etc.) — nunca al repo público
+*.pdf
+
+# Configuración local de Claude Code
+.claude/
