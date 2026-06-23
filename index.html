@@ -4,7 +4,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dafne Vilas Blanco</title>
+  <title>Dafne Vilas Blanco · Técnico Superior en Imagen para el Diagnóstico y Medicina Nuclear</title>
+
+  <!-- Favicon: iniciales DV en el azul del CV (SVG embebido, sin archivos externos) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234a7fa0'/%3E%3Ctext x='32' y='44' font-family='Arial, Helvetica, sans-serif' font-size='30' font-weight='bold' letter-spacing='-1' fill='%23ffffff' text-anchor='middle'%3EDV%3C/text%3E%3C/svg%3E">
+
+  <!-- ──────────────── SEO ──────────────── -->
+  <meta name="description"
+    content="CV de Dafne Vilas Blanco, Técnico Superior en Imagen para el Diagnóstico y Medicina Nuclear (titulada 2026, MEDAC Málaga). Disponible de inmediato para puestos en radiología, TC, RM, ecografía y medicina nuclear en Málaga y Costa del Sol.">
+  <meta name="keywords"
+    content="Dafne Vilas Blanco, Técnico Superior Imagen para el Diagnóstico, Medicina Nuclear, TSID, radiología, técnico de rayos, operador de rayos X, acreditación CSN, protección radiológica, TC, RM, resonancia magnética, ecografía, Málaga, Fuengirola, Costa del Sol, empleo sanitario">
+  <meta name="author" content="Dafne Vilas Blanco">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#4a7fa0">
+  <link rel="canonical" href="https://fvilpaz.github.io/Dafne_cv/">
+
+  <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Dafne Vilas Blanco · Técnico Superior en Imagen para el Diagnóstico y Medicina Nuclear">
+  <meta property="og:description"
+    content="Titulada 2026 (MEDAC Málaga). Disponible de inmediato para puestos en radiología, TC, RM, ecografía y medicina nuclear.">
+  <meta property="og:image" content="https://fvilpaz.github.io/Dafne_cv/foto.jpeg">
+  <meta property="og:locale" content="es_ES">
+  <meta property="profile:first_name" content="Dafne">
+  <meta property="profile:last_name" content="Vilas Blanco">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dafne Vilas Blanco · Técnico Superior en Imagen para el Diagnóstico y Medicina Nuclear">
+  <meta name="twitter:description"
+    content="Titulada 2026 (MEDAC Málaga). Disponible de inmediato para puestos en radiología, TC, RM, ecografía y medicina nuclear.">
+  <meta name="twitter:image" content="https://fvilpaz.github.io/Dafne_cv/foto.jpeg">
+
+  <!-- Datos estructurados para Google (Schema.org Person) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dafne Vilas Blanco",
+    "jobTitle": "Técnico Superior en Imagen para el Diagnóstico y Medicina Nuclear",
+    "url": "https://fvilpaz.github.io/Dafne_cv/",
+    "sameAs": ["https://www.linkedin.com/in/dafne-vilas-blanco-460ba3336"],
+    "email": "mailto:dafvilblanco@gmail.com",
+    "telephone": "+34635207312",
+    "image": "https://fvilpaz.github.io/Dafne_cv/foto.jpeg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Fuengirola",
+      "addressRegion": "Málaga",
+      "addressCountry": "ES"
+    },
+    "knowsLanguage": ["es", "gl", "en", "fr"],
+    "alumniOf": [
+      { "@type": "EducationalOrganization", "name": "MEDAC Málaga" },
+      { "@type": "EducationalOrganization", "name": "IES Los Boliches" }
+    ],
+    "knowsAbout": [
+      "Radiología diagnóstica",
+      "Tomografía computarizada",
+      "Resonancia magnética",
+      "Ecografía",
+      "Medicina nuclear",
+      "Atención al paciente"
+    ]
+  }
+  </script>
+  <!-- ──────────────── /SEO ──────────────── -->
   <link
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,800&family=Geist+Mono:wght@300;400;500&display=swap"
     rel="stylesheet">
@@ -419,6 +485,13 @@
       flex-shrink: 0;
     }
 
+    /* Carné de conducir */
+    .license-text {
+      font-size: .82rem;
+      color: var(--text-p);
+      line-height: 1.5;
+    }
+
     /* Disponibilidad */
     .avail-block {
       background: var(--bg-contact);
@@ -590,6 +663,16 @@
       .floating-btns {
         display: none;
       }
+
+      /* En papel, LinkedIn no es clicable y la URL larga ensucia: se oculta.
+         (Se encuentra por búsqueda de nombre, perfil público.)
+         Cuando se personalice la URL, cambiar este display:none por:
+           .contact-links a.li-link { font-size: 0; }
+           .contact-links a.li-link::after { content: attr(data-print); font-size: .75rem; }
+         y poner la URL limpia en data-print. */
+      .contact-links a.li-link {
+        display: none;
+      }
     }
 
     /* ──────────────── MOBILE / LANDSCAPE ──────────────── */
@@ -690,16 +773,17 @@
     <div class="header">
       <div class="header-name">
         <div class="name">Dafne<br><span class="name-accent">Vilas Blanco</span></div>
-        <div class="tagline">Técnico Superior en Imagen del<br>Diagnóstico y Medicina Nuclear · Titulación 2026</div>
+        <div class="tagline" data-i18n-html="tagline">Técnico Superior en Imagen para el<br>Diagnóstico y Medicina Nuclear · Titulada 2026</div>
       </div>
       <div class="header-contact">
-        <div class="contact-label">Contacto</div>
+        <div class="contact-label" data-i18n="contact_label">Contacto</div>
         <div class="contact-links">
           <a href="tel:+34635207312"><span class="dot"></span>635 20 73 12</a>
           <a href="mailto:dafvilblanco@gmail.com"><span class="dot"></span>dafvilblanco@gmail.com</a>
-          <span><span class="dot"></span>Fuengirola, Málaga</span>
+          <a href="https://www.linkedin.com/in/dafne-vilas-blanco-460ba3336" target="_blank" rel="noopener" class="li-link" data-print="linkedin.com/in/dafne-vilas-blanco-460ba3336"><span class="dot"></span>LinkedIn</a>
+          <span><span class="dot"></span><span data-i18n="location">Fuengirola, Málaga</span></span>
         </div>
-        <div class="header-available">Titulación 2026 · Disponible de inmediato</div>
+        <div class="header-available" data-i18n="header_available">Titulada 2026 · Disponible de inmediato</div>
       </div>
       <div class="header-right">
         <img src="foto.jpeg" alt="Dafne Vilas Blanco" />
@@ -714,70 +798,71 @@
 
         <!-- PERFIL -->
         <section class="sec">
-          <div class="sec-label">Perfil</div>
-          <p class="perfil-text">Estudiante de Grado Superior en Imagen del Diagnóstico y Medicina Nuclear, con orientación hacia el sector sanitario y el trabajo en entornos clínicos. Persona responsable, dinámica y con facilidad para el trato con pacientes y equipos multidisciplinares. Compagino los estudios con experiencia real en atención al público y gestión de caja.</p>
+          <div class="sec-label" data-i18n="sec_perfil">Perfil</div>
+          <p class="perfil-text" data-i18n="perfil_p">Técnico Superior en Imagen para el Diagnóstico y Medicina Nuclear, titulada en 2026, con prácticas clínicas manejando equipos reales de imagen y atendiendo a pacientes. Acreditada por el CSN para operar instalaciones de rayos X de diagnóstico médico, y formada en radiología, TC, RM, ecografía y medicina nuclear. Inglés avanzado y francés, útiles en entornos con pacientes internacionales. Disponible de inmediato para incorporarme a un equipo clínico.</p>
         </section>
 
         <!-- FORMACIÓN -->
         <section class="sec">
-          <div class="sec-label">Formación</div>
+          <div class="sec-label" data-i18n="sec_edu">Formación</div>
 
           <div class="edu-card">
             <div class="edu-row">
-              <span class="edu-title">CFGS · Imagen del Diagnóstico y Medicina Nuclear</span>
-              <span class="edu-date">2024 – 2026</span>
+              <span class="edu-title" data-i18n="edu0_title">CFGS · Imagen del Diagnóstico y Medicina Nuclear</span>
+              <span class="edu-date" data-i18n="edu0_date">2024 – 2026</span>
             </div>
-            <div class="edu-where">MEDAC · Fuengirola</div>
-            <p class="edu-detail">Radiología diagnóstica, ecografía, tomografía computarizada, resonancia magnética y medicina nuclear. Prácticas clínicas en entorno hospitalario completadas.</p>
-            <span class="badge wip">Finalizando · Prácticas completadas</span>
+            <div class="edu-where" data-i18n="edu0_where">MEDAC · Málaga</div>
+            <p class="edu-detail" data-i18n="edu0_detail">Radiología diagnóstica, ecografía, tomografía computarizada, resonancia magnética y medicina nuclear. Incluye la acreditación del CSN para operar instalaciones de rayos X de diagnóstico médico. Prácticas clínicas completadas en la Fundación Davante (MEDAC), con manejo de equipos reales de imagen y atención a pacientes.</p>
+            <span class="badge wip" data-i18n="edu0_badge">Titulada · Prácticas completadas</span>
           </div>
 
           <div class="edu-card">
             <div class="edu-row">
-              <span class="edu-title">Bachillerato de Ciencias y Tecnología</span>
-              <span class="edu-date">2022 – 2024</span>
+              <span class="edu-title" data-i18n="edu1_title">Bachillerato de Ciencias y Tecnología</span>
+              <span class="edu-date" data-i18n="edu1_date">2022 – 2024</span>
             </div>
-            <div class="edu-where">IES Los Boliches · Fuengirola</div>
-            <span class="badge done">✓ Completado</span>
+            <div class="edu-where" data-i18n="edu1_where">IES Los Boliches · Fuengirola</div>
+            <span class="badge done" data-i18n="badge_done">✓ Completado</span>
           </div>
 
           <div class="edu-card">
             <div class="edu-row">
-              <span class="edu-title">Educación Secundaria Obligatoria</span>
-              <span class="edu-date">2018 – 2022</span>
+              <span class="edu-title" data-i18n="edu2_title">Educación Secundaria Obligatoria</span>
+              <span class="edu-date" data-i18n="edu2_date">2018 – 2022</span>
             </div>
-            <div class="edu-where">IES Mercedes Labrador · Fuengirola</div>
-            <span class="badge done">✓ Completado</span>
+            <div class="edu-where" data-i18n="edu2_where">IES Mercedes Labrador · Fuengirola</div>
+            <span class="badge done" data-i18n="badge_done">✓ Completado</span>
           </div>
 
         </section>
 
         <!-- EXPERIENCIA -->
         <section class="sec">
-          <div class="sec-label">Experiencia</div>
+          <div class="sec-label" data-i18n="sec_exp">Experiencia</div>
 
           <div class="xp">
             <div class="xp-row">
-              <span class="xp-title">Cajera / Reponedora</span>
-              <span class="xp-date">Jun – Sep 2025</span>
+              <span class="xp-title" data-i18n="xp0_title">Cajera / Reponedora</span>
+              <span class="xp-date" data-i18n="xp0_date">Veranos 2025 y 2026</span>
             </div>
-            <div class="xp-where">Supermercados Jamón · Fuengirola</div>
+            <div class="xp-where" data-i18n="xp0_where">Supermercados El Jamón · Fuengirola</div>
             <ul class="xp-list">
-              <li>Gestión de caja, cobro en efectivo y tarjeta</li>
-              <li>Reposición y organización de productos en sala</li>
-              <li>Atención directa al cliente en entorno de alto volumen</li>
+              <li data-i18n="xp0_li0">Gestión de caja, cobro en efectivo y tarjeta</li>
+              <li data-i18n="xp0_li1">Reposición y organización de productos en sala</li>
+              <li data-i18n="xp0_li2">Atención directa al cliente en entorno de alto volumen</li>
+              <li data-i18n="xp0_li3">Recontratada para la campaña de verano 2026 tras la temporada anterior</li>
             </ul>
           </div>
 
           <div class="xp">
             <div class="xp-row">
-              <span class="xp-title">Cajera · Atención al cliente</span>
-              <span class="xp-date">29 may – 1 jun 2025</span>
+              <span class="xp-title" data-i18n="xp1_title">Cajera · Atención al cliente</span>
+              <span class="xp-date" data-i18n="xp1_date">29 may – 1 jun 2025</span>
             </div>
-            <div class="xp-where">Feria del Marisco · Puerto Deportivo de Benalmádena</div>
+            <div class="xp-where" data-i18n="xp1_where">Feria del Marisco · Puerto Deportivo de Benalmádena</div>
             <ul class="xp-list">
-              <li>Atención al cliente en el stand de Los Mellizos</li>
-              <li>Cobro en efectivo y con datáfono bajo presión de alta afluencia</li>
+              <li data-i18n="xp1_li0">Atención al cliente en el stand de Los Mellizos</li>
+              <li data-i18n="xp1_li1">Cobro en efectivo y con datáfono bajo presión de alta afluencia</li>
             </ul>
           </div>
 
@@ -790,43 +875,61 @@
 
         <!-- IDIOMAS -->
         <div class="sb-sec">
-          <span class="sb-label">Idiomas</span>
+          <span class="sb-label" data-i18n="sb_idiomas">Idiomas</span>
           <div class="lang-row">
-            <span class="lang-name">Español</span>
-            <span class="lang-level native">Nativo</span>
+            <span class="lang-name" data-i18n="lang_es">Español</span>
+            <span class="lang-level native" data-i18n="lv_native">Nativo</span>
           </div>
           <div class="lang-row">
-            <span class="lang-name">Gallego</span>
-            <span class="lang-level native">Nativo</span>
+            <span class="lang-name" data-i18n="lang_gl">Gallego</span>
+            <span class="lang-level native" data-i18n="lv_native">Nativo</span>
           </div>
           <div class="lang-row">
-            <span class="lang-name">Inglés</span>
-            <span class="lang-level">Avanzado</span>
+            <span class="lang-name" data-i18n="lang_en">Inglés</span>
+            <span class="lang-level" data-i18n="lv_advanced">Avanzado</span>
           </div>
           <div class="lang-row">
-            <span class="lang-name">Francés</span>
-            <span class="lang-level">DELF B1</span>
+            <span class="lang-name" data-i18n="lang_fr">Francés</span>
+            <span class="lang-level" data-i18n="lv_b1">DELF B1</span>
           </div>
         </div>
 
-        <!-- HABILIDADES -->
+        <!-- COMPETENCIAS TÉCNICAS -->
         <div class="sb-sec">
-          <span class="sb-label">Habilidades</span>
+          <span class="sb-label" data-i18n="sb_skills_tech">Competencias técnicas</span>
           <ul class="skill-list">
-            <li>Trabajo en equipo</li>
-            <li>Atención al paciente</li>
-            <li>Resolución de problemas</li>
-            <li>Adaptación al entorno</li>
-            <li>Empatía y escucha activa</li>
+            <li data-i18n="skill_tech_0">Protección radiológica</li>
+            <li data-i18n="skill_tech_1">Manejo de equipos: Rx, TC y RM</li>
+            <li data-i18n="skill_tech_2">Posicionamiento del paciente</li>
+            <li data-i18n="skill_tech_3">Ecografía y medicina nuclear</li>
+            <li data-i18n="skill_tech_4">Gestión de imagen digital (RIS/PACS)</li>
+          </ul>
+        </div>
+
+        <!-- COMPETENCIAS PERSONALES -->
+        <div class="sb-sec">
+          <span class="sb-label" data-i18n="sb_skills_soft">Competencias personales</span>
+          <ul class="skill-list">
+            <li data-i18n="skill_soft_0">Trabajo en equipo</li>
+            <li data-i18n="skill_soft_1">Atención al paciente</li>
+            <li data-i18n="skill_soft_2">Resolución de problemas</li>
+            <li data-i18n="skill_soft_3">Adaptación al entorno</li>
+            <li data-i18n="skill_soft_4">Empatía y escucha activa</li>
           </ul>
         </div>
 
         <!-- DISPONIBILIDAD -->
         <div class="sb-sec">
-          <span class="sb-label">Disponibilidad</span>
+          <span class="sb-label" data-i18n="sb_avail">Disponibilidad</span>
           <div class="avail-block">
-            <p>Titulación 2026. Disponible a jornada completa desde verano. Abierta a puestos en imagen diagnóstica, radiología o áreas clínicas afines.</p>
+            <p data-i18n="avail_p">Titulada 2026. Disponible a jornada completa de inmediato, con flexibilidad para turnos rotativos y fines de semana. Abierta a puestos en imagen diagnóstica, radiología o áreas clínicas afines.</p>
           </div>
+        </div>
+
+        <!-- CARNÉ DE CONDUCIR -->
+        <div class="sb-sec">
+          <span class="sb-label" data-i18n="sb_license">Carné de conducir</span>
+          <p class="license-text" data-i18n="license_p">Permiso B · teórico superado, práctico en trámite</p>
         </div>
 
       </aside>
@@ -837,17 +940,17 @@
     const _t = {
       es: {
         contact_label: 'Contacto',
-        header_available: 'Titulación 2026 · Disponible de inmediato',
-        tagline: 'Técnico Superior en Imagen del\nDiagnóstico y Medicina Nuclear · Titulación 2026',
+        header_available: 'Titulada 2026 · Disponible de inmediato',
+        tagline: 'Técnico Superior en Imagen para el\nDiagnóstico y Medicina Nuclear · Titulada 2026',
         location: 'Fuengirola, Málaga',
         sec_perfil: 'Perfil',
-        perfil_p: 'Estudiante de Grado Superior en Imagen del Diagnóstico y Medicina Nuclear, con orientación hacia el sector sanitario y el trabajo en entornos clínicos. Persona responsable, dinámica y con facilidad para el trato con pacientes y equipos multidisciplinares. Compagino los estudios con experiencia real en atención al público y gestión de caja.',
+        perfil_p: 'Técnico Superior en Imagen para el Diagnóstico y Medicina Nuclear, titulada en 2026, con prácticas clínicas manejando equipos reales de imagen y atendiendo a pacientes. Acreditada por el CSN para operar instalaciones de rayos X de diagnóstico médico, y formada en radiología, TC, RM, ecografía y medicina nuclear. Inglés avanzado y francés, útiles en entornos con pacientes internacionales. Disponible de inmediato para incorporarme a un equipo clínico.',
         sec_edu: 'Formación',
         edu0_title: 'CFGS · Imagen del Diagnóstico y Medicina Nuclear',
         edu0_date: '2024 – 2026',
-        edu0_where: 'MEDAC · Fuengirola',
-        edu0_detail: 'Radiología diagnóstica, ecografía, tomografía computarizada, resonancia magnética y medicina nuclear. Prácticas clínicas en entorno hospitalario completadas.',
-        edu0_badge: 'Finalizando · Prácticas completadas',
+        edu0_where: 'MEDAC · Málaga',
+        edu0_detail: 'Radiología diagnóstica, ecografía, tomografía computarizada, resonancia magnética y medicina nuclear. Incluye la acreditación del CSN para operar instalaciones de rayos X de diagnóstico médico. Prácticas clínicas completadas en la Fundación Davante (MEDAC), con manejo de equipos reales de imagen y atención a pacientes.',
+        edu0_badge: 'Titulada · Prácticas completadas',
         edu1_title: 'Bachillerato de Ciencias y Tecnología',
         edu1_date: '2022 – 2024',
         edu1_where: 'IES Los Boliches · Fuengirola',
@@ -857,11 +960,12 @@
         badge_done: '✓ Completado',
         sec_exp: 'Experiencia',
         xp0_title: 'Cajera / Reponedora',
-        xp0_date: 'Jun – Sep 2025',
-        xp0_where: 'Supermercados Jamón · Fuengirola',
+        xp0_date: 'Veranos 2025 y 2026',
+        xp0_where: 'Supermercados El Jamón · Fuengirola',
         xp0_li0: 'Gestión de caja, cobro en efectivo y tarjeta',
         xp0_li1: 'Reposición y organización de productos en sala',
         xp0_li2: 'Atención directa al cliente en entorno de alto volumen',
+        xp0_li3: 'Recontratada para la campaña de verano 2026 tras la temporada anterior',
         xp1_title: 'Cajera · Atención al cliente',
         xp1_date: '29 may – 1 jun 2025',
         xp1_where: 'Feria del Marisco · Puerto Deportivo de Benalmádena',
@@ -875,24 +979,36 @@
         lv_native: 'Nativo',
         lv_advanced: 'Avanzado',
         lv_b1: 'DELF B1',
-        sb_skills: 'Habilidades',
-        skills: ['Trabajo en equipo', 'Atención al paciente', 'Resolución de problemas', 'Adaptación al entorno', 'Empatía y escucha activa'],
+        sb_skills_tech: 'Competencias técnicas',
+        skill_tech_0: 'Protección radiológica',
+        skill_tech_1: 'Manejo de equipos: Rx, TC y RM',
+        skill_tech_2: 'Posicionamiento del paciente',
+        skill_tech_3: 'Ecografía y medicina nuclear',
+        skill_tech_4: 'Gestión de imagen digital (RIS/PACS)',
+        sb_skills_soft: 'Competencias personales',
+        skill_soft_0: 'Trabajo en equipo',
+        skill_soft_1: 'Atención al paciente',
+        skill_soft_2: 'Resolución de problemas',
+        skill_soft_3: 'Adaptación al entorno',
+        skill_soft_4: 'Empatía y escucha activa',
         sb_avail: 'Disponibilidad',
-        avail_p: 'Titulación 2026. Disponible a jornada completa desde verano. Abierta a puestos en imagen diagnóstica, radiología o áreas clínicas afines.',
+        avail_p: 'Titulada 2026. Disponible a jornada completa de inmediato, con flexibilidad para turnos rotativos y fines de semana. Abierta a puestos en imagen diagnóstica, radiología o áreas clínicas afines.',
+        sb_license: 'Carné de conducir',
+        license_p: 'Permiso B · teórico superado, práctico en trámite',
       },
       en: {
         contact_label: 'Contact',
-        header_available: 'Graduating 2026 · Available immediately',
-        tagline: 'Higher Technician in Medical Imaging\n& Nuclear Medicine · Graduating 2026',
+        header_available: 'Qualified 2026 · Available immediately',
+        tagline: 'Higher Technician in Medical Imaging\n& Nuclear Medicine · Qualified 2026',
         location: 'Fuengirola, Málaga, Spain',
         sec_perfil: 'Profile',
-        perfil_p: 'Higher Vocational student specialising in Medical Imaging and Nuclear Medicine, focused on a career in healthcare and clinical environments. Responsible, dynamic and at ease working with patients and multidisciplinary teams. I combine my studies with hands-on experience in customer service and till management.',
+        perfil_p: 'Higher Technician in Medical Imaging and Nuclear Medicine, qualified in 2026, with clinical placements operating real imaging equipment and caring for patients. CSN-accredited to operate medical diagnostic X-ray installations, and trained in radiology, CT, MRI, ultrasound and nuclear medicine. Advanced English and French, valuable in settings with international patients. Available immediately to join a clinical team.',
         sec_edu: 'Education',
         edu0_title: 'HVT · Medical Imaging & Nuclear Medicine',
         edu0_date: '2024 – 2026',
-        edu0_where: 'MEDAC · Fuengirola',
-        edu0_detail: 'Diagnostic radiology, ultrasound, computed tomography, MRI and nuclear medicine. Clinical placement in a hospital setting completed.',
-        edu0_badge: 'Completing · Clinical placement done',
+        edu0_where: 'MEDAC · Málaga',
+        edu0_detail: 'Diagnostic radiology, ultrasound, computed tomography, MRI and nuclear medicine. Includes the CSN accreditation to operate medical diagnostic X-ray installations. Clinical placement completed at the Davante Foundation (MEDAC), working with real imaging equipment and patients.',
+        edu0_badge: 'Qualified · Clinical placement done',
         edu1_title: 'A-Level Sciences & Technology',
         edu1_date: '2022 – 2024',
         edu1_where: 'IES Los Boliches · Fuengirola',
@@ -902,11 +1018,12 @@
         badge_done: '✓ Completed',
         sec_exp: 'Experience',
         xp0_title: 'Cashier / Stock Replenisher',
-        xp0_date: 'Jun – Sep 2025',
-        xp0_where: 'Supermercados Jamón · Fuengirola',
+        xp0_date: 'Summers 2025 & 2026',
+        xp0_where: 'Supermercados El Jamón · Fuengirola',
         xp0_li0: 'Till operation, cash and card payment handling',
         xp0_li1: 'Stock replenishment and product organisation on the shop floor',
         xp0_li2: 'Direct customer service in a high-volume environment',
+        xp0_li3: 'Rehired for the summer 2026 campaign after the previous season',
         xp1_title: 'Cashier · Customer Service',
         xp1_date: '29 May – 1 Jun 2025',
         xp1_where: 'Feria del Marisco · Benalmádena Marina',
@@ -920,92 +1037,41 @@
         lv_native: 'Native',
         lv_advanced: 'Advanced',
         lv_b1: 'DELF B1',
-        sb_skills: 'Skills',
-        skills: ['Teamwork', 'Patient care', 'Problem solving', 'Adaptability', 'Empathy & active listening'],
+        sb_skills_tech: 'Technical skills',
+        skill_tech_0: 'Radiation protection',
+        skill_tech_1: 'Equipment: X-ray, CT & MRI',
+        skill_tech_2: 'Patient positioning',
+        skill_tech_3: 'Ultrasound & nuclear medicine',
+        skill_tech_4: 'Digital imaging (RIS/PACS)',
+        sb_skills_soft: 'Personal skills',
+        skill_soft_0: 'Teamwork',
+        skill_soft_1: 'Patient care',
+        skill_soft_2: 'Problem solving',
+        skill_soft_3: 'Adaptability',
+        skill_soft_4: 'Empathy & active listening',
         sb_avail: 'Availability',
-        avail_p: 'Graduating 2026. Available full-time from summer. Open to positions in medical imaging, radiology or related clinical areas.',
+        avail_p: 'Qualified 2026. Available full-time immediately, with flexibility for rotating shifts and weekends. Open to positions in medical imaging, radiology or related clinical areas.',
+        sb_license: 'Driving licence',
+        license_p: 'Category B · theory passed, practical test pending',
       }
     };
 
     let _lang = 'es';
 
-    function _sel(selector, idx) {
-      return document.querySelectorAll(selector)[idx] || null;
-    }
-
-    function _setText(el, text) {
-      if (el) el.textContent = text;
-    }
-
     function applyLang(lang) {
       const t = _t[lang];
 
-      // Header
-      _setText(_sel('.contact-label', 0), t.contact_label);
-      _setText(_sel('.header-available', 0), t.header_available);
-      const taglineEl = document.querySelector('.tagline');
-      if (taglineEl) taglineEl.innerHTML = t.tagline.replace('\n', '<br>');
-      const locSpan = document.querySelector('.contact-links > span');
-      if (locSpan && locSpan.lastChild && locSpan.lastChild.nodeType === 3)
-        locSpan.lastChild.textContent = t.location;
+      // Texto plano: cada elemento se traduce por su atributo data-i18n.
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = t[el.dataset.i18n];
+        if (v != null) el.textContent = v;
+      });
 
-      // Sections
-      _setText(_sel('.sec-label', 0), t.sec_perfil);
-      _setText(_sel('.perfil-text', 0), t.perfil_p);
-      _setText(_sel('.sec-label', 1), t.sec_edu);
-
-      // Education
-      const eduTitles  = document.querySelectorAll('.edu-title');
-      const eduDates   = document.querySelectorAll('.edu-date');
-      const eduWheres  = document.querySelectorAll('.edu-where');
-      const eduDetails = document.querySelectorAll('.edu-detail');
-      _setText(eduTitles[0],  t.edu0_title);
-      _setText(eduDates[0],   t.edu0_date);
-      _setText(eduWheres[0],  t.edu0_where);
-      _setText(eduDetails[0], t.edu0_detail);
-      _sel('.badge.wip', 0).textContent = t.edu0_badge;
-      _setText(eduTitles[1],  t.edu1_title);
-      _setText(eduDates[1],   t.edu1_date);
-      _setText(eduWheres[1],  t.edu1_where);
-      _setText(eduTitles[2],  t.edu2_title);
-      _setText(eduDates[2],   t.edu2_date);
-      _setText(eduWheres[2],  t.edu2_where);
-      document.querySelectorAll('.badge.done').forEach(el => el.textContent = t.badge_done);
-
-      // Experience
-      _setText(_sel('.sec-label', 2), t.sec_exp);
-      const titles = document.querySelectorAll('.xp-title');
-      const dates  = document.querySelectorAll('.xp-date');
-      const wheres = document.querySelectorAll('.xp-where');
-      _setText(titles[0], t.xp0_title);
-      _setText(dates[0],  t.xp0_date);
-      _setText(wheres[0], t.xp0_where);
-      _setText(titles[1], t.xp1_title);
-      _setText(dates[1],  t.xp1_date);
-      _setText(wheres[1], t.xp1_where);
-      const liItems = document.querySelectorAll('.xp-list li');
-      _setText(liItems[0], t.xp0_li0);
-      _setText(liItems[1], t.xp0_li1);
-      _setText(liItems[2], t.xp0_li2);
-      _setText(liItems[3], t.xp1_li0);
-      _setText(liItems[4], t.xp1_li1);
-
-      // Sidebar – Languages
-      _setText(_sel('.sb-label', 0), t.sb_idiomas);
-      const langNames  = document.querySelectorAll('.lang-name');
-      const langLevels = document.querySelectorAll('.lang-level');
-      _setText(langNames[0],  t.lang_es); _setText(langLevels[0], t.lv_native);
-      _setText(langNames[1],  t.lang_gl); _setText(langLevels[1], t.lv_native);
-      _setText(langNames[2],  t.lang_en); _setText(langLevels[2], t.lv_advanced);
-      _setText(langNames[3],  t.lang_fr); _setText(langLevels[3], t.lv_b1);
-
-      // Sidebar – Skills
-      _setText(_sel('.sb-label', 1), t.sb_skills);
-      document.querySelectorAll('.skill-list li').forEach((el, i) => _setText(el, t.skills[i]));
-
-      // Sidebar – Availability
-      _setText(_sel('.sb-label', 2), t.sb_avail);
-      _setText(_sel('.avail-block p', 0), t.avail_p);
+      // Contenido con HTML (saltos de línea): data-i18n-html.
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const v = t[el.dataset.i18nHtml];
+        if (v != null) el.innerHTML = v.replace(/\n/g, '<br>');
+      });
 
       document.documentElement.lang = lang;
       document.getElementById('lang-label').textContent = lang === 'es' ? 'EN' : 'ES';
@@ -1014,14 +1080,28 @@
     function toggleLang() {
       _lang = _lang === 'es' ? 'en' : 'es';
       applyLang(_lang);
+      try { localStorage.setItem('cv-lang', _lang); } catch (e) {}
     }
 
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
+    function setTheme(isDark) {
+      document.body.classList.toggle('dark-mode', isDark);
       document.getElementById('icon-moon').style.display = isDark ? 'none' : 'block';
       document.getElementById('icon-sun').style.display  = isDark ? 'block' : 'none';
     }
+
+    function toggleTheme() {
+      const isDark = !document.body.classList.contains('dark-mode');
+      setTheme(isDark);
+      try { localStorage.setItem('cv-theme', isDark ? 'dark' : 'light'); } catch (e) {}
+    }
+
+    // Restaurar tema e idioma guardados (si los hay)
+    (function restorePrefs() {
+      try {
+        if (localStorage.getItem('cv-theme') === 'dark') setTheme(true);
+        if (localStorage.getItem('cv-lang') === 'en') { _lang = 'en'; applyLang('en'); }
+      } catch (e) {}
+    })();
   </script>
 </body>
 
